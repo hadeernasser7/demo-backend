@@ -13,6 +13,6 @@ jobs:
 
       - name: Build the Docker Image
         run: |
-          # لاحظي التغيير هنا: ضفنا اسم الفولدر قبل النقطة
-          docker build -t backend-image:latest ./visua;3
+          # حطينا اسم الفولدر بين علامات تنصيص عشان الـ ;
+          docker build -t backend-image:latest "./visua;3"
           echo "Done! The image has been built successfully."
