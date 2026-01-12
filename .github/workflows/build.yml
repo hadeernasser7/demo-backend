@@ -12,6 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build the Docker Image
-        working-directory: ./visua;3
         run: |
-          docker build -t backend-image:latest .
+          # هنستخدم الأمر ده عشان يدخل جوه أي فولدر يبدأ بـ visua
+          cd visua* docker build -t backend-image:latest .
+          echo "Done! The image has been built successfully."
