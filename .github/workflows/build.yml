@@ -2,7 +2,7 @@ name: Backend Docker Build
 
 on:
   push:
-    branches: [ "main" ] # هيشتغل كل ما ترفعي حاجة على فرع main
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -13,5 +13,6 @@ jobs:
 
       - name: Build the Docker Image
         run: |
-          docker build -t backend-image:latest .
+          # لاحظي التغيير هنا: ضفنا اسم الفولدر قبل النقطة
+          docker build -t backend-image:latest ./visua;3
           echo "Done! The image has been built successfully."
