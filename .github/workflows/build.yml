@@ -2,7 +2,7 @@ name: Backend Docker Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ] # هيشتغل كل ما ترفعي حاجة على فرع main
 
 jobs:
   build:
@@ -13,6 +13,6 @@ jobs:
 
       - name: Build the Docker Image
         run: |
-          # هنستخدم الأمر ده عشان يدخل جوه أي فولدر يبدأ بـ visua
-          cd visua* docker build -t backend-image:latest .
+          cd "visua;3"
+          docker build -t backend-image:latest .
           echo "Done! The image has been built successfully."
