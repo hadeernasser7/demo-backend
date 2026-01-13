@@ -8,7 +8,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Build the Docker Image
         run: |
-          # هنا شيلنا cd back لأننا جوه الفولدر فعلاً
+          # بناء الصورة من الفولدر الحالي
           docker build -t backend-image:latest .
+
+      - name: Run Server to Connect to MongoDB
+        run: |
+          # تشغيل الحاوية في الخلفية
+          docker run -d --name test-container backend-image:latest
+          # الانتظار 30 ثانية للتأكد من إتمام الاتصال بمونجو
+          sleep 30
+          # عرض سجلات السيرفر عشان نتأكد إنه قال "تم الاتصال"
+          docker logs test-container
+          # إيقاف الحاوية بعد إتمام المهمة
+          docker stop test-container
