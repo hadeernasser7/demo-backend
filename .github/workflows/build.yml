@@ -1,18 +1,14 @@
 name: Backend Docker Build
-
 on:
   push:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Build the Docker Image
         run: |
-          cd back
+          # هنا شيلنا cd back لأننا جوه الفولدر فعلاً
           docker build -t backend-image:latest .
-          echo "Done! The image has been built successfully."
